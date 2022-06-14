@@ -1,4 +1,15 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Calculator {
+    void read(File file) throws FileNotFoundException{
+        Scanner sc = new Scanner(file);
+        String temp = sc.nextLine();
+        System.out.println(temp);
+    }
+
+
 
     void calculate(String str){
         String[] s = str.split("\\s+");
@@ -25,5 +36,6 @@ public class Calculator {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+
     }
 }
