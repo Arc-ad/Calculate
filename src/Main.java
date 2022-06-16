@@ -6,9 +6,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String path = "bro.txt";
         File file = new File(path);
-        Calculator c = new Calculator();
 
         File file1 = new File("broOutput.txt");
+        Calculator c = new Calculator(file1);
+
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()){
             String temp = sc.nextLine();

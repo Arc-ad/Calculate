@@ -10,7 +10,9 @@ public class Calculator {
 
     public Calculator() throws IOException {
     }
-
+    public Calculator(File file) throws IOException {
+        FileWriter writer = new FileWriter(file, false);
+    }
     String read(File file) throws FileNotFoundException{     // Метод считывает текст из файла в переменную temp и
                                                             // и возращает стсроковое значение
         Scanner sc = new Scanner(file);
