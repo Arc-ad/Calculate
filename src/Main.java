@@ -7,8 +7,14 @@ public class Main {
         String path = "bro.txt";
         File file = new File(path);
         Calculator c = new Calculator();
-       String result = String.valueOf(c.calculate(c.read(file)));
+
         File file1 = new File("broOutput.txt");
-        c.writer(file1, result);
+        Scanner sc = new Scanner(file);
+        while (sc.hasNextLine()){
+            String temp = sc.nextLine();
+            String result= c.calculate(temp);
+            c.writer(temp + " = " + result + "\n");
+        }
+
     }
 }

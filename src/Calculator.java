@@ -5,7 +5,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Calculator {
+    FileWriter writer = new FileWriter("broOutput.txt", false);
     private String temp = "";
+
+    public Calculator() throws IOException {
+    }
+
     String read(File file) throws FileNotFoundException{     // Метод считывает текст из файла в переменную temp и
                                                             // и возращает стсроковое значение
         Scanner sc = new Scanner(file);
@@ -13,43 +18,54 @@ public class Calculator {
         return temp;
     }
 
-    void writer(File file, String str) throws IOException {         // метод записывает в файл ответ
-        try (FileWriter writer = new FileWriter(file, false)) {
+    void writer(String str) throws IOException {         // метод записывает в файл ответ
+
             writer.write(str);
             writer.flush();
         }
 
-    }
 
-    double calculate(String str){
+
+    String calculate(String str){
         String[] s = str.split("\\s+");
         try{
+            try {
+                double a = Double.parseDouble(s[0]);
+            }catch (Exception ex) {
+                return "Error! Not number";
+            }
+            try {
+                double b = Double.parseDouble(s[2]);
+            }catch (Exception ex) {
+                return "Error! Not number";
+            }
             double a = Double.parseDouble(s[0]);
             String st = s[1];
             double b = Double.parseDouble(s[2]);
             switch (st) {
                 case "+":
-                    return a + b;
+                    return String.valueOf(a + b);
                 case "-":
-                    return a - b;
+                    return String.valueOf(a - b);
                 case "*":
-                    return a * b;
+                    return String.valueOf(a * b);
                 case "/":
                     if (b == 0) {
                         throw new Exception("Error! Division by zero");
                     }
-                    return a / b;
+                    return String.valueOf(a / b);
 
                 default:
                     throw new Exception("Operation Error!");
+
             }
         }catch( NumberFormatException nfe){
-            System.out.println("Error! Not number");
+            return String.valueOf(nfe.getMessage());
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            return String.valueOf(ex.getMessage());
         }
 
-        return 0;
+
     }
 }
