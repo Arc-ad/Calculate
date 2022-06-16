@@ -17,5 +17,6 @@ public class Main {
             c.writer(temp + " = " + result + "\n");
         }
 
+        System.out.println();
     }
 }
