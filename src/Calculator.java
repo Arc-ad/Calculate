@@ -31,16 +31,8 @@ public class Calculator {
     String calculate(String str){
         String[] s = str.split("\\s+");
         try{
-            try {
-                double a = Double.parseDouble(s[0]);
-            }catch (Exception ex) {
-                return "Error! Not number";
-            }
-            try {
-                double b = Double.parseDouble(s[2]);
-            }catch (Exception ex) {
-                return "Error! Not number";
-            }
+
+
             double a = Double.parseDouble(s[0]);
             String st = s[1];
             double b = Double.parseDouble(s[2]);
@@ -62,7 +54,7 @@ public class Calculator {
 
             }
         }catch( NumberFormatException nfe){
-            return String.valueOf(nfe.getMessage());
+            return "Error! Not number";
 
         } catch (Exception ex) {
             return String.valueOf(ex.getMessage());
