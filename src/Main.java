@@ -16,7 +16,7 @@ public class Main {
             String result= c.calculate(temp);
             c.writer(temp + " = " + result + "\n");
         }
-        System.out.println("hello123");
+        System.out.println("hello1230000");
 
     }
 }
