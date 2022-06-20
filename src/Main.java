@@ -15,8 +15,9 @@ public class Main {
             String temp = sc.nextLine();
             String result= c.calculate(temp);
             c.writer(temp + " = " + result + "\n");
+
         }
-        System.out.println("hello123123");
+      System.out.println("hello123123");
 
     }
 }
